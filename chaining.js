@@ -8,8 +8,12 @@ function filterIt(element, index, array) {
 }
 
 function mapIt(element, index, array) {
-	var another = element * 1.5 - 1;
+	var another = (element * 1.5) - 1;
 	return another;
+}
+
+function reduceIt(total, num) {
+	return total + num;
 }
 
 // Sort the numbers in descending order (10, 9, 8, 7, etc).
@@ -20,5 +24,10 @@ function mapIt(element, index, array) {
 // Use the map function
 // Chain em
 
-integers.sort(function(a, b) {return b - a}).filter(filterIt).map(mapIt);
+var chaining = integers.sort(function(a, b) {return b - a})
+.filter(filterIt)
+.map(mapIt)
+.reduce(reduceIt);
+
+console.log(chaining);
 
